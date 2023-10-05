@@ -1,11 +1,11 @@
 import types
 
 def flat_generator(list_of_list):
-    for i in list_of_list:
-        if isinstance(i, list):
-            yield from flat_generator(i)
+    for elem in list_of_list:
+        if isinstance(elem, list):
+            yield from flat_generator(elem)
         else:
-            yield i
+            yield elem
 
 
 def test_2():
