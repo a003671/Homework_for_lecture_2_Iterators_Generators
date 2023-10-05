@@ -1,14 +1,11 @@
 import types
 
-def flat_generator(list_of_lists):
-    result = []
-    for elem in list_of_lists:
-        if not isinstance(elem, list):
-            result.append(elem)
+def flat_generator(list_of_list):
+    for i in list_of_list:
+        if isinstance(i, list):
+            yield from flat_generator(i)
         else:
-            result += flat_generator(elem)
-    yield from result
-
+            yield i
 
 
 def test_2():
